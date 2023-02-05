@@ -20,8 +20,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	total_time_elapsed += delta
+	total_time_elapsed += delta*0.1
 	wave_time_elapsed += delta
+	wave_timer = 10/(total_time_elapsed)
+	if wave_timer <= 0.1: wave_timer = 0.1
 	if wave_time_elapsed >= wave_timer:
 		spawn()
 

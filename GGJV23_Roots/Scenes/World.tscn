@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://rcw1a43jknki"]
+[gd_scene load_steps=11 format=3 uid="uid://rcw1a43jknki"]
 
 [ext_resource type="Texture2D" uid="uid://ctdxt2gfmss7k" path="res://Sprites/Roots_Game_BkGrnd_Night.png" id="1_dib70"]
 [ext_resource type="Texture2D" uid="uid://w7t5pfbyippi" path="res://Sprites/Roots_Game_BkGrnd.png" id="2_mcx06"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bv6nw2msj5ndf" path="res://Sprites/Roots_Game_Ground.png" id="4_ovmio"]
 [ext_resource type="PackedScene" uid="uid://bxancmruieebi" path="res://Scenes/enemy_spawner.tscn" id="6_ats2m"]
 [ext_resource type="PackedScene" uid="uid://biqtt0tcww12c" path="res://Scenes/PlayerController.tscn" id="7_5ylju"]
+[ext_resource type="Script" path="res://Scenes/bgm.gd" id="7_vncj6"]
 [ext_resource type="PackedScene" uid="uid://dpgh4dx6e4art" path="res://Scenes/bgm.tscn" id="8_gclhk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_txpyy"]
@@ -72,6 +73,8 @@ layer_0/tile_data = PackedInt32Array(327680, 65536, 0, 327682, 65536, 0, 327681,
 
 [node name="BGM" parent="." instance=ExtResource("8_gclhk")]
 volume_db = -6.0
+autoplay = false
+script = ExtResource("7_vncj6")
 
 [node name="Enemy Spawner" parent="." instance=ExtResource("6_ats2m")]
 

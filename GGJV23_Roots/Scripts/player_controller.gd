@@ -132,6 +132,6 @@ func _on_enemy_attack(damage):
 	update_ui()
 	
 	if current_hp < damage:
-		pass #gameover
+		get_tree().change_scene_to_file("res://Scenes/death_screen.tscn")
 
 

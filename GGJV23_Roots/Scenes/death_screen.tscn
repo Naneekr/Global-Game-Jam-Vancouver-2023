@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://df1yvq7fk6v4c"]
+
+[ext_resource type="Script" path="res://Death Screen.gd" id="1_keudt"]
+[ext_resource type="Texture2D" uid="uid://quek0lh3y2hi" path="res://Sprites/Endcard.png" id="2_c3irc"]
+
+[node name="Death Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_keudt")
+
+[node name="ColorRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_c3irc")
+expand_mode = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -15.5
+offset_right = 28.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CenterContainer"]
+layout_mode = 2
+text = "Retry?"
+
+[connection signal="button_down" from="CenterContainer/Button" to="." method="_on_button_button_down"]
