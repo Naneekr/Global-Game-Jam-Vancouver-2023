@@ -1,12 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://cm4xbw1lsg15q"]
+[gd_scene load_steps=13 format=3 uid="uid://cm4xbw1lsg15q"]
 
 [ext_resource type="Script" path="res://Scripts/Bat_AI.gd" id="1_1l0ao"]
 [ext_resource type="Texture2D" uid="uid://6nb3rftlru5m" path="res://Sprites/Roots_Game_Bat_Anim.png" id="1_7o5ki"]
+[ext_resource type="Shader" path="res://Shaders/Dissolve.gdshader" id="1_m0ibv"]
 [ext_resource type="AudioStream" uid="uid://p1c7jsc0g0dy" path="res://Audio/487509__nicknamelarry__crazy-bat.wav" id="3_8ap6o"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cqjis"]
 radius = 23.0
 height = 46.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3mm6l"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_w18o8"]
+noise = SubResource("FastNoiseLite_3mm6l")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mfi6a"]
+shader = ExtResource("1_m0ibv")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_w18o8")
 
 [sub_resource type="Animation" id="Animation_hruk7"]
 resource_name = "Attack"
@@ -102,6 +113,7 @@ position = Vector2(-3, -1)
 shape = SubResource("CapsuleShape2D_cqjis")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_mfi6a")
 texture = ExtResource("1_7o5ki")
 hframes = 12
 
@@ -109,7 +121,6 @@ hframes = 12
 libraries = {
 "": SubResource("AnimationLibrary_2a1in")
 }
-
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -16.0
@@ -123,4 +134,3 @@ default_color = Color(1, 0, 0, 1)
 [node name="HBarEmpty" type="Line2D" parent="."]
 position = Vector2(0, -25)
 points = PackedVector2Array(10, 0, 10, 0)
-

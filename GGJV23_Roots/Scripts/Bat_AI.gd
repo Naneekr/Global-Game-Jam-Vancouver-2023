@@ -13,9 +13,13 @@ var attacking = false
 var attack_distance = 250
 var travel_distance = 0
 
+var mat: ShaderMaterial
+var dissolve_amount = 1
+
 @onready var sprite = $Sprite2D
 @onready var anim = $Sprite2D/AnimationPlayer
 @onready var hurtbox = $AnimatableBody2D/CollisionShape2D
+
 # @onready var player = $somefilepathtotheplayer
 
 signal enemy_attack
@@ -24,6 +28,8 @@ signal enemy_attack
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	mat = sprite.material
+	mat.set_shader_parameter("dissolve_value", dissolve_amount)
 	#target_dir.x = player.position.x - self.position.x
 	if target_dir.x <= 0 : flipped = false
 	else : flipped = true
@@ -39,7 +45,7 @@ func _process(delta):
 		current_hp -= MAX_HP*(0.2 + 0.1*(holy_stacks-1))*delta
 		$HBarEmpty.set_point_position(1, Vector2(10 - (20*(1-current_hp/MAX_HP)), 0))
 	if current_hp <= 0:
-		#die
+		_die(delta)
 		holy_stacks = 0
 
 func _chase():
@@ -63,3 +69,10 @@ func _send_attack_signal():
 	
 func _on_holy_burst(_level):
 	holy_stacks += 1
+
+func _die(delta):
+	anim.stop()
+	dissolve_amount -= delta
+	mat.set_shader_parameter("dissolve_value", dissolve_amount)
+	if dissolve_amount <= 0 : self.queue_free()
+	
