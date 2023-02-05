@@ -34,14 +34,18 @@ func _ready():
 
 	mat = sprite.material
 	mat.set_shader_parameter("dissolve_value", dissolve_amount)
-	target_dir.x = self.global_position.x - player_position.x
-	if target_dir.x <= 0 : flipped = false
-	else : flipped = true
-	_chase()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	target_dir.x = player_position.x - self.position.x
+	
+	if target_dir.x <= 0 : 
+		flipped = false
+	else : 
+		flipped = true
+		
 	if attacking == false: _chase()
 	else: _attack()
 	

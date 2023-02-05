@@ -44,7 +44,7 @@ func spawn():
 		spawned_enemy = bat.instantiate()
 		add_child(spawned_enemy)
 		if coin2 == 0:
-			spawned_enemy.set_position(spawn_pointL.position)
+			spawned_enemy.set_position(Vector2(spawn_pointL.position.x, 215))
 		if coin2 == 1:
-			spawned_enemy.set_position(spawn_pointR.position)
+			spawned_enemy.set_position(Vector2(spawn_pointR.position.x, 215))
 	

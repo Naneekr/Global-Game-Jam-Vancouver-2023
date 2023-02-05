@@ -5,22 +5,22 @@
 [ext_resource type="Shader" path="res://Shaders/Dissolve.gdshader" id="1_m0ibv"]
 [ext_resource type="AudioStream" uid="uid://p1c7jsc0g0dy" path="res://Audio/487509__nicknamelarry__crazy-bat.wav" id="3_8ap6o"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_01x5r"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvnxe"]
 radius = 23.0
 height = 46.0
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_8wyr4"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_frqpu"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_akmaj"]
-noise = SubResource("FastNoiseLite_8wyr4")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_q17r2"]
+noise = SubResource("FastNoiseLite_frqpu")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lal58"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i1xsg"]
 resource_local_to_scene = true
 shader = ExtResource("1_m0ibv")
 shader_parameter/dissolve_value = 1.0
-shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_akmaj")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_q17r2")
 
-[sub_resource type="Animation" id="Animation_gkk0s"]
+[sub_resource type="Animation" id="Animation_j7fvq"]
 resource_name = "Attack"
 length = 0.8
 tracks/0/type = "value"
@@ -65,7 +65,7 @@ tracks/2/keys = {
 }
 tracks/2/use_blend = true
 
-[sub_resource type="Animation" id="Animation_wkav6"]
+[sub_resource type="Animation" id="Animation_b8dt4"]
 resource_name = "Move"
 length = 0.4
 loop_mode = 1
@@ -82,7 +82,7 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_18fmt"]
+[sub_resource type="Animation" id="Animation_7vpyu"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -97,11 +97,11 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_iroyo"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_evrx1"]
 _data = {
-"Attack": SubResource("Animation_gkk0s"),
-"Move": SubResource("Animation_wkav6"),
-"RESET": SubResource("Animation_18fmt")
+"Attack": SubResource("Animation_j7fvq"),
+"Move": SubResource("Animation_b8dt4"),
+"RESET": SubResource("Animation_7vpyu")
 }
 
 [node name="Bat" type="Node2D"]
@@ -111,16 +111,16 @@ script = ExtResource("1_1l0ao")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 position = Vector2(-3, -1)
-shape = SubResource("CapsuleShape2D_01x5r")
+shape = SubResource("CapsuleShape2D_nvnxe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_lal58")
+material = SubResource("ShaderMaterial_i1xsg")
 texture = ExtResource("1_7o5ki")
 hframes = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
-"": SubResource("AnimationLibrary_iroyo")
+"": SubResource("AnimationLibrary_evrx1")
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

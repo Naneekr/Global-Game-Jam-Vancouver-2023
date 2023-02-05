@@ -8,7 +8,7 @@ signal holy_burst
 var TREE_SIZES
 const MAX_LEAVES = [3, 8, 16]
 const MAX_ROOTS  = [4, 8, 12]
-const HOLY_BURST_COST = 1
+const HOLY_BURST_COST = 2
 var leaf_vis
 var root_vis
 const TICK_GOAL = 2.0
