@@ -1,8 +1,11 @@
 extends Node2D
 
+const MAX_HP = 100
+
 var move_speed = 2
 var attack_damage = 2
-var health = 40
+var current_hp = 100
+var holy_stacks = 0
 
 var target_dir = Vector2(12800,0)
 var flipped = false
@@ -29,6 +32,13 @@ func _ready():
 func _process(delta):
 	if attacking == false: _chase()
 	else: _attack()
+	
+	if holy_stacks > 0:
+		current_hp -= MAX_HP*(0.2 + 0.1*(holy_stacks-1))*delta
+		$HBarEmpty.set_point_position(1, Vector2(25 - (50*(1-current_hp/MAX_HP)), 0))
+	if current_hp <= 0:
+		#die
+		holy_stacks = 0
 
 func _chase():
 	attacking = false
@@ -45,7 +55,7 @@ func _attack():
 	anim.play("Attack")
 
 func _send_attack_signal():
-	emit_signal("enemy_attack")
+	emit_signal("enemy_attack", attack_damage)
 	
 func _on_holy_burst(_level):
-	return
+	holy_stacks += 1

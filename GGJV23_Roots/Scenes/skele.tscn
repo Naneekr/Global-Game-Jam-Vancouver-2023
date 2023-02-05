@@ -110,5 +110,16 @@ libraries = {
 "": SubResource("AnimationLibrary_2a1in")
 }
 
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -12.0
+
+[node name="HBarFull" type="Line2D" parent="."]
+position = Vector2(0, -40)
+points = PackedVector2Array(-25, 0, 25, 0)
+default_color = Color(1, 0.0235294, 0.0470588, 1)
+
+[node name="HBarEmpty" type="Line2D" parent="."]
+position = Vector2(0, -40)
+points = PackedVector2Array(25, 0, 25, 0)
+

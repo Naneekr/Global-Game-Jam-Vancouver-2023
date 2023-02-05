@@ -81,3 +81,5 @@ position = Vector2(608, 106)
 volume_db = -6.0
 
 [connection signal="frame_changed" from="Day_Background" to="Day_Background" method="_on_frame_changed"]
+[connection signal="holy_burst" from="PlayerController" to="Skele" method="_on_holy_burst"]
+[connection signal="holy_burst" from="PlayerController" to="Bat" method="_on_holy_burst"]

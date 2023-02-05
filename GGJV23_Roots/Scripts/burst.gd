@@ -23,4 +23,4 @@ func _process(delta):
 func _on_holy_burst(_level):
 	ripple_time = 0.0
 	burst_is_active = true
-	print_debug("Wow holy burst")
+	#print_debug("Wow holy burst")
