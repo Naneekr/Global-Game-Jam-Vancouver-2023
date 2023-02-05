@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dcdsm5qjwh22o" path="res://Scenes/holyburst.tscn" id="2_37rld"]
 [ext_resource type="Texture2D" uid="uid://cr4pysc862iqs" path="res://Sprites/Leaf.png" id="3_1klon"]
 [ext_resource type="Shader" path="res://Shaders/ripple.gdshader" id="3_x2v5t"]
-[ext_resource type="Texture2D" uid="uid://dm724m5mruyes" path="res://Sprites/Roots_Game_Root_Levels.png" id="4_8g363"]
+[ext_resource type="Texture2D" uid="uid://g5b1h0m5o2s7" path="res://Sprites/Roots_Game_Root_Levels.png" id="4_8g363"]
 [ext_resource type="Texture2D" uid="uid://dw3mqa2b2mtwq" path="res://Sprites/Roots_Game_Line.png" id="5_y10kg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vbukx"]
@@ -19,6 +19,7 @@ shader_parameter/RTIME = 0.001
 script = ExtResource("1_i36np")
 
 [node name="Tree" type="Node2D" parent="."]
+position = Vector2(-213, -102)
 
 [node name="Size_1" type="Node2D" parent="Tree"]
 position = Vector2(540, 410)
@@ -236,10 +237,13 @@ layout_mode = 2
 text = "Photosynthesize"
 
 [node name="Panel" parent="MainControl" instance=ExtResource("2_37rld")]
-visible = false
 material = SubResource("ShaderMaterial_vbukx")
-offset_right = 1152.0
-offset_bottom = 648.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
 [connection signal="holy_burst" from="." to="MainControl/Panel" method="_on_holy_burst"]

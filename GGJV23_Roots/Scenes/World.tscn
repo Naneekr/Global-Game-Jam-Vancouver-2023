@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://w7t5pfbyippi" path="res://Sprites/Roots_Game_BkGrnd.png" id="2_mcx06"]
 [ext_resource type="Script" path="res://Scripts/Sprite2DDay_Night.gd" id="3_pgt0g"]
 [ext_resource type="Texture2D" uid="uid://bv6nw2msj5ndf" path="res://Sprites/Roots_Game_Ground.png" id="4_ovmio"]
-[ext_resource type="Texture2D" uid="uid://g5b1h0m5o2s7" path="res://Sprites/Roots_Game_Root_Levels.png" id="5_aqygy"]
 [ext_resource type="PackedScene" uid="uid://bhovwp87jb32j" path="res://Scenes/skele.tscn" id="6_nbk0h"]
+[ext_resource type="PackedScene" uid="uid://biqtt0tcww12c" path="res://Scenes/PlayerController.tscn" id="7_5ylju"]
 [ext_resource type="PackedScene" uid="uid://cm4xbw1lsg15q" path="res://Scenes/bat.tscn" id="7_uycwe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_txpyy"]
@@ -68,15 +68,12 @@ cell_quadrant_size = 64
 format = 2
 layer_0/tile_data = PackedInt32Array(327680, 65536, 0, 327682, 65536, 0, 327681, 65536, 0, 327683, 65536, 0, 327684, 65536, 0, 327685, 65536, 0, 327686, 65536, 0, 327687, 65536, 0, 327688, 65536, 0, 327689, 65536, 0, 393216, 131072, 1, 458752, 65536, 1, 458753, 65536, 1, 458754, 65536, 1, 458755, 65536, 1, 458761, 131072, 1, 393225, 65536, 1, 458760, 65536, 1, 393224, 65536, 1, 458759, 65536, 1, 393223, 65536, 1, 458758, 65536, 1, 393222, 0, 1, 458757, 131072, 1, 393221, 65536, 1, 458756, 65536, 1, 393220, 0, 1, 393219, 131072, 1, 393218, 65536, 1, 393217, 65536, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(320, 392)
-texture = ExtResource("5_aqygy")
-hframes = 4
-
 [node name="Skele" parent="." instance=ExtResource("6_nbk0h")]
 position = Vector2(42, 293)
 
 [node name="Bat" parent="." instance=ExtResource("7_uycwe")]
 position = Vector2(608, 106)
+
+[node name="PlayerController" parent="." instance=ExtResource("7_5ylju")]
 
 [connection signal="frame_changed" from="Day_Background" to="Day_Background" method="_on_frame_changed"]
