@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcdsm5qjwh22o"]
+
+[ext_resource type="Shader" path="res://Shaders/ripple.gdshader" id="1_h5wxj"]
+[ext_resource type="Script" path="res://Scripts/burst.gd" id="2_xyd5n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mv1qw"]
+shader = ExtResource("1_h5wxj")
+shader_parameter/HOLY_ORANGE = Vector3(1, 0.71, 0.14)
+shader_parameter/SPEED = 20.0
+shader_parameter/effect_origin = Vector4(0.5, 0.9, 1, 0)
+shader_parameter/RTIME = 0.005
+
+[node name="Panel" type="Panel"]
+material = SubResource("ShaderMaterial_mv1qw")
+script = ExtResource("2_xyd5n")
