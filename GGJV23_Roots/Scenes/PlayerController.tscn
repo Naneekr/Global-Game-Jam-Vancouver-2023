@@ -144,14 +144,16 @@ layout_mode = 2
 
 [node name="Button" type="Button" parent="MainControl/UpgradeMenu/MarginContainer"]
 layout_mode = 2
-text = "Grow Leaf"
+text = "Grow Leaf
+Cost: 2 Sugar"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MainControl/UpgradeMenu"]
 layout_mode = 2
 
 [node name="Button" type="Button" parent="MainControl/UpgradeMenu/MarginContainer2"]
 layout_mode = 2
-text = "Grow Root"
+text = "Grow Root
+Cost: 6 Sugar"
 
 [node name="MarginContainer3" type="MarginContainer" parent="MainControl/UpgradeMenu"]
 layout_mode = 2
@@ -160,7 +162,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Sprout?"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainControl"]
+[node name="ResourceUI" type="VBoxContainer" parent="MainControl"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -169,72 +171,101 @@ offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainControl/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainControl/ResourceUI"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MainControl/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="MainControl/ResourceUI/HBoxContainer"]
 layout_mode = 2
 text = "Sun:"
 
-[node name="Label2" type="Label" parent="MainControl/VBoxContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="MainControl/ResourceUI/HBoxContainer"]
 layout_mode = 2
 text = "0"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MainControl/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainControl/ResourceUI"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MainControl/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="MainControl/ResourceUI/HBoxContainer2"]
 layout_mode = 2
 text = "Water:"
 
-[node name="Label2" type="Label" parent="MainControl/VBoxContainer/HBoxContainer2"]
+[node name="Label2" type="Label" parent="MainControl/ResourceUI/HBoxContainer2"]
 layout_mode = 2
 text = "0"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MainControl/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MainControl/ResourceUI"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MainControl/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="MainControl/ResourceUI/HBoxContainer3"]
 layout_mode = 2
 text = "Sugar:"
 
-[node name="Label2" type="Label" parent="MainControl/VBoxContainer/HBoxContainer3"]
+[node name="Label2" type="Label" parent="MainControl/ResourceUI/HBoxContainer3"]
 layout_mode = 2
 text = "0"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainControl"]
+[node name="ActionMenu" type="VBoxContainer" parent="MainControl"]
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -54.0
+offset_right = 383.0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainControl/ActionMenu"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainControl/ActionMenu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="MainControl/ActionMenu/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Holy Burst
+Cost: 2 Sun"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainControl/ActionMenu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="MainControl/ActionMenu/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "Water of Life
+Cost: 3 Water"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MainControl/ActionMenu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="MainControl/ActionMenu/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+text = "Photosynthesize
+Cost: 3 Sun + 3 Water"
+
+[node name="HPBox" type="MarginContainer" parent="MainControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -120.0
-grow_horizontal = 2
+offset_left = -60.0
+offset_top = -60.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
 grow_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="MainControl/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainControl/HPBox"]
 layout_mode = 2
-size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="MainControl/HBoxContainer/MarginContainer"]
+[node name="Label" type="Label" parent="MainControl/HPBox/HBoxContainer"]
 layout_mode = 2
-text = "Holy Burst"
+text = "HP:"
 
-[node name="MarginContainer2" type="MarginContainer" parent="MainControl/HBoxContainer"]
+[node name="Label2" type="Label" parent="MainControl/HPBox/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Button" type="Button" parent="MainControl/HBoxContainer/MarginContainer2"]
-layout_mode = 2
-text = "Water of Life"
-
-[node name="MarginContainer3" type="MarginContainer" parent="MainControl/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Button" type="Button" parent="MainControl/HBoxContainer/MarginContainer3"]
-layout_mode = 2
-text = "Photosynthesize"
 
 [node name="Panel" parent="MainControl" instance=ExtResource("2_37rld")]
 material = SubResource("ShaderMaterial_vbukx")
@@ -250,6 +281,6 @@ mouse_filter = 2
 [connection signal="pressed" from="MainControl/UpgradeMenu/MarginContainer/Button" to="." method="_on_growleaf_button_pressed"]
 [connection signal="pressed" from="MainControl/UpgradeMenu/MarginContainer2/Button" to="." method="_on_grow_root_button_pressed"]
 [connection signal="pressed" from="MainControl/UpgradeMenu/MarginContainer3/Button" to="." method="_on_grow_tree_button_pressed"]
-[connection signal="pressed" from="MainControl/HBoxContainer/MarginContainer/Button" to="." method="_on_hb_button_pressed"]
-[connection signal="pressed" from="MainControl/HBoxContainer/MarginContainer2/Button" to="." method="_on_wh_button_pressed"]
-[connection signal="pressed" from="MainControl/HBoxContainer/MarginContainer3/Button" to="." method="_on_sg_button_pressed"]
+[connection signal="pressed" from="MainControl/ActionMenu/HBoxContainer/MarginContainer/Button" to="." method="_on_hb_button_pressed"]
+[connection signal="pressed" from="MainControl/ActionMenu/HBoxContainer/MarginContainer2/Button" to="." method="_on_wh_button_pressed"]
+[connection signal="pressed" from="MainControl/ActionMenu/HBoxContainer/MarginContainer3/Button" to="." method="_on_sg_button_pressed"]

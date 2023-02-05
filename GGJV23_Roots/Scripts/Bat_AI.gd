@@ -2,8 +2,8 @@ extends Node2D
 
 const MAX_HP = 40
 
-var move_speed = 2
-var attack_damage = 2
+var move_speed = 0.4
+var attack_damage = 1
 var current_hp = 40
 var holy_stacks = 0
 
@@ -65,7 +65,7 @@ func _attack():
 	anim.play("Attack")
 
 func _send_attack_signal():
-	emit_signal("enemy_attack")
+	emit_signal("enemy_attack", attack_damage)
 	
 func _on_holy_burst(_level):
 	holy_stacks += 1
