@@ -5,6 +5,7 @@ var bat = preload("res://Scenes/bat.tscn")
 
 var spawned_enemy
 
+
 @onready var spawn_pointL = $Spawn_Point_L
 @onready var spawn_pointR = $Spawn_Point_R
 
@@ -34,7 +35,6 @@ func spawn():
 	if coin == 0 : 
 		spawned_enemy = skele.instantiate()
 		add_child(spawned_enemy)
-	
 		if coin2 == 0:
 			spawned_enemy.set_position(spawn_pointL.position)
 		if coin2 == 1:

@@ -7,19 +7,21 @@ var attack_damage = 2
 var current_hp = 100
 var holy_stacks = 0
 
-var target_dir = Vector2(12800,0)
+var target_dir = Vector2(0,0)
 var flipped = false
 var attacking = false
-var attack_distance = 250
-var travel_distance = 0
+var attack_range = 35
+
+
+var player_position = Vector2(320, 320)
 
 var mat: ShaderMaterial
 var dissolve_amount = 1
 
+@onready var sigbus = $"/root/SignalBus"
 @onready var sprite = $Sprite2D
 @onready var anim = $Sprite2D/AnimationPlayer
 @onready var hurtbox = $AnimatableBody2D/CollisionShape2D
-# @onready var player = $somefilepathtotheplayer
 
 signal enemy_attack
 
@@ -27,9 +29,11 @@ signal enemy_attack
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	sigbus.holy_burst.connect(_on_holy_burst)
+	
 	mat = sprite.material
 	mat.set_shader_parameter("dissolve_value", dissolve_amount)
-	#target_dir.x = player.position.x - self.position.x
+	target_dir.x = self.global_position.x - player_position.x 
 	if target_dir.x >= 0 : flipped = false
 	else : flipped = true
 	_chase()
@@ -52,7 +56,6 @@ func _chase():
 	
 	var movement = move_speed*(signf(target_dir.x))
 	translate(Vector2(movement,0))
-	travel_distance += abs(movement)
 	
 	if flipped: 
 		sprite.set_flip_h(true)
@@ -61,8 +64,7 @@ func _chase():
 		
 	anim.play("Move")
 	
-	if travel_distance >= attack_distance : 
-		_attack()
+	if abs(self.position.x - player_position.x) <= attack_range : _attack()
 	
 
 func _attack():
@@ -70,7 +72,7 @@ func _attack():
 	anim.play("Attack")
 
 func _send_attack_signal():
-	emit_signal("enemy_attack", attack_damage)
+	sigbus.emit_signal("enemy_attack", attack_damage)
 	
 func _on_holy_burst(_level):
 	holy_stacks += 1

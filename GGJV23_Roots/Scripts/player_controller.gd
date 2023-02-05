@@ -2,6 +2,7 @@ extends Node
 
 #Signals
 signal holy_burst
+@onready var sigbus = $"/root/SignalBus"
 
 #Constants
 var TREE_SIZES
@@ -43,6 +44,10 @@ func _ready():
 	toggle_roots()
 	update_ui()
 	
+	sigbus.enemy_attack.connect(_on_enemy_attack)
+	
+	
+	
 func _process(delta):
 	progress_to_tick += delta
 	
@@ -71,7 +76,7 @@ func update_ui():
 func _on_hb_button_pressed():
 	if current_sun >= HOLY_BURST_COST:
 		current_sun -= HOLY_BURST_COST
-		emit_signal("holy_burst", 1)
+		sigbus.emit_signal("holy_burst", 1)
 		update_ui()
 	
 func _on_wh_button_pressed():

@@ -4,10 +4,13 @@ var ripple_time = 0.0
 var mat: ShaderMaterial
 var burst_is_active = false
 
+@onready var sigbus = $"/root/SignalBus"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	mat = self.material
+	
+	sigbus.holy_burst.connect(_on_holy_burst)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

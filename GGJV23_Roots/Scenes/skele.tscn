@@ -5,21 +5,22 @@
 [ext_resource type="Shader" path="res://Shaders/Dissolve.gdshader" id="2_dmdp4"]
 [ext_resource type="AudioStream" uid="uid://c3r7ups2mvmad" path="res://Audio/521253__maugusto_sfx__eatingsfx.wav" id="3_hte6j"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8qjpm"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_71ssc"]
 radius = 24.0
 height = 70.0
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_7ojhs"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fit7y"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cpgvr"]
-noise = SubResource("FastNoiseLite_7ojhs")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_guok6"]
+noise = SubResource("FastNoiseLite_fit7y")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ofxj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5woap"]
+resource_local_to_scene = true
 shader = ExtResource("2_dmdp4")
 shader_parameter/dissolve_value = 1.0
-shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_cpgvr")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_guok6")
 
-[sub_resource type="Animation" id="Animation_hruk7"]
+[sub_resource type="Animation" id="Animation_aj5vh"]
 resource_name = "Attack"
 length = 0.8
 tracks/0/type = "value"
@@ -64,7 +65,7 @@ tracks/2/keys = {
 }
 tracks/2/use_blend = true
 
-[sub_resource type="Animation" id="Animation_hhvnx"]
+[sub_resource type="Animation" id="Animation_lltqo"]
 resource_name = "Move"
 length = 0.4
 loop_mode = 1
@@ -81,7 +82,7 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_gra5t"]
+[sub_resource type="Animation" id="Animation_idsi7"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -96,11 +97,11 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2a1in"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lgm6o"]
 _data = {
-"Attack": SubResource("Animation_hruk7"),
-"Move": SubResource("Animation_hhvnx"),
-"RESET": SubResource("Animation_gra5t")
+"Attack": SubResource("Animation_aj5vh"),
+"Move": SubResource("Animation_lltqo"),
+"RESET": SubResource("Animation_idsi7")
 }
 
 [node name="Skele" type="Node2D"]
@@ -110,16 +111,16 @@ script = ExtResource("1_in3mg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 position = Vector2(-2, 2)
-shape = SubResource("CapsuleShape2D_8qjpm")
+shape = SubResource("CapsuleShape2D_71ssc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_3ofxj")
+material = SubResource("ShaderMaterial_5woap")
 texture = ExtResource("1_gkynm")
 hframes = 16
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
-"": SubResource("AnimationLibrary_2a1in")
+"": SubResource("AnimationLibrary_lgm6o")
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

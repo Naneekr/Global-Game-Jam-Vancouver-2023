@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://rcw1a43jknki"]
+[gd_scene load_steps=12 format=3 uid="uid://rcw1a43jknki"]
 
 [ext_resource type="Texture2D" uid="uid://ctdxt2gfmss7k" path="res://Sprites/Roots_Game_BkGrnd_Night.png" id="1_dib70"]
 [ext_resource type="Texture2D" uid="uid://w7t5pfbyippi" path="res://Sprites/Roots_Game_BkGrnd.png" id="2_mcx06"]
 [ext_resource type="Script" path="res://Scripts/Sprite2DDay_Night.gd" id="3_pgt0g"]
 [ext_resource type="Texture2D" uid="uid://bv6nw2msj5ndf" path="res://Sprites/Roots_Game_Ground.png" id="4_ovmio"]
+[ext_resource type="PackedScene" uid="uid://bxancmruieebi" path="res://Scenes/enemy_spawner.tscn" id="6_ats2m"]
 [ext_resource type="PackedScene" uid="uid://bhovwp87jb32j" path="res://Scenes/skele.tscn" id="6_nbk0h"]
 [ext_resource type="PackedScene" uid="uid://biqtt0tcww12c" path="res://Scenes/PlayerController.tscn" id="7_5ylju"]
 [ext_resource type="PackedScene" uid="uid://cm4xbw1lsg15q" path="res://Scenes/bat.tscn" id="7_uycwe"]
@@ -80,8 +81,9 @@ position = Vector2(608, 106)
 [node name="BGM" parent="." instance=ExtResource("8_gclhk")]
 volume_db = -6.0
 
+[node name="Enemy Spawner" parent="." instance=ExtResource("6_ats2m")]
+
 [connection signal="frame_changed" from="Day_Background" to="Day_Background" method="_on_frame_changed"]
 [connection signal="enemy_attack" from="Skele" to="PlayerController" method="_on_enemy_attack"]
-[connection signal="enemy_attack" from="Bat" to="PlayerController" method="_on_enemy_attack"]
 [connection signal="holy_burst" from="PlayerController" to="Skele" method="_on_holy_burst"]
 [connection signal="holy_burst" from="PlayerController" to="Bat" method="_on_holy_burst"]
