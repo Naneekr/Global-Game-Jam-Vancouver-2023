@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhovwp87jb32j"]
+[gd_scene load_steps=9 format=3 uid="uid://bhovwp87jb32j"]
 
 [ext_resource type="Texture2D" uid="uid://1rgf2i8uk34n" path="res://Sprites/Roots_Game_skele_Anim.png" id="1_gkynm"]
 [ext_resource type="Script" path="res://Scripts/Enemy_AI.gd" id="1_in3mg"]
+[ext_resource type="AudioStream" uid="uid://c3r7ups2mvmad" path="res://Audio/521253__maugusto_sfx__eatingsfx.wav" id="3_hte6j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8qjpm"]
 radius = 24.0
@@ -36,6 +37,21 @@ tracks/1/keys = {
 "method": &"_send_attack_signal"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.1,
+"stream": ExtResource("3_hte6j")
+}],
+"times": PackedFloat32Array(0.7)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_hhvnx"]
 resource_name = "Move"
@@ -93,3 +109,6 @@ hframes = 16
 libraries = {
 "": SubResource("AnimationLibrary_2a1in")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -12.0

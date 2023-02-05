@@ -14,6 +14,10 @@ config/name="Ggjv 23 Roots"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Bgm="*res://Scenes/bgm.tscn"
+
 [display]
 
 window/size/viewport_width=640

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpgh4dx6e4art"]
+
+[ext_resource type="AudioStream" uid="uid://buuv4xqcvxl1r" path="res://Audio/Roots game.mp3" id="1_fa04k"]
+
+[node name="BGM" type="AudioStreamPlayer"]
+stream = ExtResource("1_fa04k")
+autoplay = true

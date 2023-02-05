@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://rcw1a43jknki"]
+[gd_scene load_steps=11 format=3 uid="uid://rcw1a43jknki"]
 
 [ext_resource type="Texture2D" uid="uid://ctdxt2gfmss7k" path="res://Sprites/Roots_Game_BkGrnd_Night.png" id="1_dib70"]
 [ext_resource type="Texture2D" uid="uid://w7t5pfbyippi" path="res://Sprites/Roots_Game_BkGrnd.png" id="2_mcx06"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bhovwp87jb32j" path="res://Scenes/skele.tscn" id="6_nbk0h"]
 [ext_resource type="PackedScene" uid="uid://biqtt0tcww12c" path="res://Scenes/PlayerController.tscn" id="7_5ylju"]
 [ext_resource type="PackedScene" uid="uid://cm4xbw1lsg15q" path="res://Scenes/bat.tscn" id="7_uycwe"]
+[ext_resource type="PackedScene" uid="uid://dpgh4dx6e4art" path="res://Scenes/bgm.tscn" id="8_gclhk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_txpyy"]
 resource_name = "Ground"
@@ -75,5 +76,8 @@ position = Vector2(42, 293)
 position = Vector2(608, 106)
 
 [node name="PlayerController" parent="." instance=ExtResource("7_5ylju")]
+
+[node name="BGM" parent="." instance=ExtResource("8_gclhk")]
+volume_db = -6.0
 
 [connection signal="frame_changed" from="Day_Background" to="Day_Background" method="_on_frame_changed"]
