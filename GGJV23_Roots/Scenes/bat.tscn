@@ -93,3 +93,12 @@ hframes = 12
 libraries = {
 "": SubResource("AnimationLibrary_2a1in")
 }
+
+[node name="HBarFull" type="Line2D" parent="."]
+position = Vector2(0, -25)
+points = PackedVector2Array(10, 0, -10, 0)
+default_color = Color(1, 0, 0, 1)
+
+[node name="HBarEmpty" type="Line2D" parent="."]
+position = Vector2(0, -25)
+points = PackedVector2Array(10, 0, 10, 0)
