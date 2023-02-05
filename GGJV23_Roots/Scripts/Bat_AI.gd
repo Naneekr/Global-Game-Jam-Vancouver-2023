@@ -12,6 +12,8 @@ var flipped = true
 var attacking = false
 var attack_range = 30
 
+var wait_time = 1.2
+
 var player_position = Vector2(320, 320)
 
 var mat: ShaderMaterial
@@ -38,6 +40,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	if wait_time > 0:
+		wait_time -= delta
+		return
 	
 	target_dir.x = player_position.x - self.position.x
 	

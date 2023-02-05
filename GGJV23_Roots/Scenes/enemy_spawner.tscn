@@ -6,7 +6,7 @@
 script = ExtResource("1_252oh")
 
 [node name="Spawn_Point_L" type="Node2D" parent="."]
-position = Vector2(141, 290)
+position = Vector2(-24, 290)
 
 [node name="Spawn_Point_R" type="Node2D" parent="."]
-position = Vector2(444, 290)
+position = Vector2(664, 290)
