@@ -15,11 +15,11 @@ var root_sprite
 
 #Tree stats
 var size_level            = 0
-var max_hp                = 10
+var max_hp                = 15
 var current_leaves        = 1
 var current_total_roots   = 1
 var current_active_roots  = 1
-var current_hp            = 10
+var current_hp            = 15
 var current_water         = 0
 var current_sun           = 0 
 var current_sugar         = 0
@@ -41,6 +41,7 @@ func _ready():
 	TREE_SIZES[size_level].visible = true
 	toggle_leaves()
 	toggle_roots()
+	update_ui()
 	
 func _process(delta):
 	progress_to_tick += delta
@@ -60,9 +61,10 @@ func toggle_roots():
 		root_vis[size_level][i].visible = true
 		
 func update_ui():
-	$MainControl/VBoxContainer/HBoxContainer/Label2.text = str(current_sun)
-	$MainControl/VBoxContainer/HBoxContainer2/Label2.text = str(current_water)
-	$MainControl/VBoxContainer/HBoxContainer3/Label2.text = str(current_sugar)
+	$MainControl/ResourceUI/HBoxContainer/Label2.text = str(current_sun)
+	$MainControl/ResourceUI/HBoxContainer2/Label2.text = str(current_water)
+	$MainControl/ResourceUI/HBoxContainer3/Label2.text = str(current_sugar)
+	$MainControl/HPBox/HBoxContainer/Label2.text = str(current_hp) + "/" + str(max_hp)
 
 #Signal Callbacks
 ##Basic buttons
@@ -89,8 +91,17 @@ func _on_sg_button_pressed():
 
 ##Advanced Attacks
 func _on_ls_button_pressed():
-	current_leaves -= 1
-	#Shoot leaf...
+	if current_leaves > 1 && current_sugar > 0:
+		current_leaves -= 1
+		current_sugar -= 1
+		update_ui()
+		#Shoot leaf...
+	
+func _on_rw_button_pressed():
+	if current_active_roots > 0 && current_sugar > 1:
+		current_active_roots -= 1
+		current_sugar -= 2
+		#Make root wall...
 	
 ##Upgrades
 func _on_growleaf_button_pressed():
@@ -113,6 +124,7 @@ func _on_grow_tree_button_pressed():
 	
 func _on_enemy_attack(damage):
 	current_hp -= damage
+	update_ui()
 	
 	if current_hp < damage:
 		pass #gameover

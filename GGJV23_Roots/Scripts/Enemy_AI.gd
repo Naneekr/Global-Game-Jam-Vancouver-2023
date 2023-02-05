@@ -2,7 +2,7 @@ extends Node2D
 
 const MAX_HP = 100
 
-var move_speed = 2
+var move_speed = 0.2
 var attack_damage = 2
 var current_hp = 100
 var holy_stacks = 0
@@ -10,6 +10,8 @@ var holy_stacks = 0
 var target_dir = Vector2(12800,0)
 var flipped = false
 var attacking = false
+var attack_distance = 250
+var travel_distance = 0
 
 var mat: ShaderMaterial
 var dissolve_amount = 1
@@ -47,12 +49,20 @@ func _process(delta):
 
 func _chase():
 	attacking = false
-	translate(Vector2(move_speed*(signf(target_dir.x)),0))
-	target_dir.x = target_dir.x - self.position.x
-	if flipped: sprite.set_flip_h(true)
-	else: sprite.set_flip_h(false)
+	
+	var movement = move_speed*(signf(target_dir.x))
+	translate(Vector2(movement,0))
+	travel_distance += abs(movement)
+	
+	if flipped: 
+		sprite.set_flip_h(true)
+	else: 
+		sprite.set_flip_h(false)
+		
 	anim.play("Move")
-	if target_dir.x < 5 : _attack()
+	
+	if travel_distance >= attack_distance : 
+		_attack()
 	
 
 func _attack():
