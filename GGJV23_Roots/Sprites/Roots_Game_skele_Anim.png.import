@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctdxt2gfmss7k"
-path="res://.godot/imported/Roots_Game_BkGrnd_Night.png-7f4043b012b460e3fd555e76547b9165.ctex"
+uid="uid://1rgf2i8uk34n"
+path="res://.godot/imported/Roots_Game_skele_Anim.png-bd8384a4d575ce79021f745e03b08b47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Roots_Game_BkGrnd_Night.png"
-dest_files=["res://.godot/imported/Roots_Game_BkGrnd_Night.png-7f4043b012b460e3fd555e76547b9165.ctex"]
+source_file="res://Sprites/Roots_Game_skele_Anim.png"
+dest_files=["res://.godot/imported/Roots_Game_skele_Anim.png-bd8384a4d575ce79021f745e03b08b47.ctex"]
 
 [params]
 

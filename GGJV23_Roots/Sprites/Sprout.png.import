@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w7t5pfbyippi"
-path="res://.godot/imported/Roots_Game_BkGrnd.png-a8daa0cfb4135f9ea955018e02c09076.ctex"
+uid="uid://dv5ul0lcqba2a"
+path="res://.godot/imported/Sprout.png-3b6366a510cd417338bce86d41419ac1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Roots_Game_BkGrnd.png"
-dest_files=["res://.godot/imported/Roots_Game_BkGrnd.png-a8daa0cfb4135f9ea955018e02c09076.ctex"]
+source_file="res://Sprites/Sprout.png"
+dest_files=["res://.godot/imported/Sprout.png-3b6366a510cd417338bce86d41419ac1.ctex"]
 
 [params]
 

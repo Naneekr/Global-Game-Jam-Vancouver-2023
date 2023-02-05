@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1rgf2i8uk34n"
-path="res://.godot/imported/Roots_Game_skele_Anim.png-c8000dd895d8035c3d5f45e853ea80e1.ctex"
+uid="uid://w7t5pfbyippi"
+path="res://.godot/imported/Roots_Game_BkGrnd.png-df56e4b7c48a22af17ecd0ef1e549ab7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Roots_Game_skele_Anim.png"
-dest_files=["res://.godot/imported/Roots_Game_skele_Anim.png-c8000dd895d8035c3d5f45e853ea80e1.ctex"]
+source_file="res://Sprites/Roots_Game_BkGrnd.png"
+dest_files=["res://.godot/imported/Roots_Game_BkGrnd.png-df56e4b7c48a22af17ecd0ef1e549ab7.ctex"]
 
 [params]
 

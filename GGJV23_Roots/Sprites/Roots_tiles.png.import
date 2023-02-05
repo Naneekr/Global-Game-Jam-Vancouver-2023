@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv6nw2msj5ndf"
-path="res://.godot/imported/Roots_Game_Ground.png-925255bba487352437769ed194f4afeb.ctex"
+uid="uid://ck5yk6n3d8yjm"
+path="res://.godot/imported/Roots_tiles.png-e41a740c899a48991986c9d94bb2fda4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Roots_Game_Ground.png"
-dest_files=["res://.godot/imported/Roots_Game_Ground.png-925255bba487352437769ed194f4afeb.ctex"]
+source_file="res://Sprites/Roots_tiles.png"
+dest_files=["res://.godot/imported/Roots_tiles.png-e41a740c899a48991986c9d94bb2fda4.ctex"]
 
 [params]
 

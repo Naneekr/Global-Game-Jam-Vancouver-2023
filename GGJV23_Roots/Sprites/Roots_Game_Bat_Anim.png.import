@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw3mqa2b2mtwq"
-path="res://.godot/imported/Roots_Game_Line.png-5ccbe65808194613668e8382fc237e87.ctex"
+uid="uid://6nb3rftlru5m"
+path="res://.godot/imported/Roots_Game_Bat_Anim.png-51cb7afc6ce0d75c5afb4af853646b9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Roots_Game_Line.png"
-dest_files=["res://.godot/imported/Roots_Game_Line.png-5ccbe65808194613668e8382fc237e87.ctex"]
+source_file="res://Sprites/Roots_Game_Bat_Anim.png"
+dest_files=["res://.godot/imported/Roots_Game_Bat_Anim.png-51cb7afc6ce0d75c5afb4af853646b9e.ctex"]
 
 [params]
 

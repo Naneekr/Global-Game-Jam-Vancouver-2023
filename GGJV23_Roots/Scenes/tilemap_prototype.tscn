@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://c7pq5p4drq5y7"]
+[gd_scene load_steps=12 format=3]
 
-[ext_resource type="Script" path="res://tilemap_prototype_spawner.gd" id="1_i72pu"]
-[ext_resource type="Texture2D" uid="uid://w7t5pfbyippi" path="res://Roots_Game_BkGrnd.png" id="2_hhkr4"]
-[ext_resource type="Texture2D" uid="uid://bv6nw2msj5ndf" path="res://Roots_Game_Ground.png" id="2_qoqui"]
-[ext_resource type="Texture2D" uid="uid://ck5yk6n3d8yjm" path="res://Roots_tiles.png" id="3_r6dfd"]
-[ext_resource type="Texture2D" uid="uid://ctdxt2gfmss7k" path="res://Roots_Game_BkGrnd_Night.png" id="4_k0jg2"]
-[ext_resource type="Texture2D" uid="uid://dw3mqa2b2mtwq" path="res://Roots_Game_Line.png" id="5_s4g1s"]
-[ext_resource type="Script" path="res://Sprite2DDay_Night.gd" id="6_euhcc"]
+[ext_resource type="Script" path="res://Scripts/tilemap_prototype_spawner.gd" id="1_i72pu"]
+[ext_resource type="Texture2D" uid="uid://w7t5pfbyippi" path="res://Sprites/Roots_Game_BkGrnd.png" id="2_hhkr4"]
+[ext_resource type="Texture2D" uid="uid://bv6nw2msj5ndf" path="res://Sprites/Roots_Game_Ground.png" id="2_qoqui"]
+[ext_resource type="Texture2D" uid="uid://ck5yk6n3d8yjm" path="res://Sprites/Roots_tiles.png" id="3_r6dfd"]
+[ext_resource type="Texture2D" uid="uid://ctdxt2gfmss7k" path="res://Sprites/Roots_Game_BkGrnd_Night.png" id="4_k0jg2"]
+[ext_resource type="Texture2D" uid="uid://dw3mqa2b2mtwq" path="res://Sprites/Roots_Game_Line.png" id="5_s4g1s"]
+[ext_resource type="Script" path="res://Scripts/Sprite2DDay_Night.gd" id="6_euhcc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hjcoo"]
 texture = ExtResource("2_qoqui")
