@@ -15,11 +15,11 @@ var root_sprite
 
 #Tree stats
 var size_level            = 0
-var max_hp                = 15
+var max_hp                = 30
 var current_leaves        = 1
 var current_total_roots   = 1
 var current_active_roots  = 1
-var current_hp            = 15
+var current_hp            = 30
 var current_water         = 0
 var current_sun           = 0 
 var current_sugar         = 0

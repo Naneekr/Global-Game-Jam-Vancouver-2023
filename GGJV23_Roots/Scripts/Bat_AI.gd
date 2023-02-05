@@ -2,7 +2,7 @@ extends Node2D
 
 const MAX_HP = 40
 
-var move_speed = 0.4
+var move_speed = 0.6
 var attack_damage = 1
 var current_hp = 40
 var holy_stacks = 0
